@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Genre Prediction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo"><strong>Genre Prediction</strong></a>
+					<nav id="nav">
+						<a href="#">Home</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+            </header>
+            
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Predict Genre of a book from it's Summary</h1>
+					</header>
+					<footer>
+						<a href="#footer" class="button">Get Started</a>
+					</footer>
+				</div>
+			</section>
+
+        <!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h3>Predict Genre</h3>
+
+
+						<div class="field half first">
+							<label for="name">Book Title</label>
+							<input name="name" id="name" type="text" placeholder="Title Here.." required>
+						</div><!--
+						<div class="field half">
+							<label for="email">Predicted Genres</label>
+							<ul style="font-size: 1.5em;">
+								<li style="display: inline-block;">Romance</li> &nbsp; |
+								<li style="display: inline-block;">Fiction</li>
+							</ul>
+                        </div>-->
+                        <div  class="field half">
+                        	<div id="genreresponse"></div>
+                        </div>
+
+						<div class="field">
+							<label for="clientmessage">Summary</label>
+							<textarea name="clientmessage" id="clientmessage" onkeypress="submitonenter(event,this)" rows="6" placeholder="Summary Here..." required></textarea>
+						</div>
+					<br>
+						<ul class="actions">
+                            <li><input value="Predict" class="button alt" type="submit" onclick=""></li>
+						</ul>
+			</div>
+
+				</div>
+			</footer>
+
+			
+			<div id="survey">
+				<center>
+					<!-- script for survey monkey here -->
+				</center>
+			</div>
+
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/skel.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+            <script src="/static/assets/js/main.js"></script>
+
+	</body>
+</html>
