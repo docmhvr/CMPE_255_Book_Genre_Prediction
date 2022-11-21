@@ -60,6 +60,27 @@
 						<ul class="actions">
                             <li><input value="Predict" class="button alt" type="submit" onclick=""></li>
 						</ul>
+
+					<div id="result">
+				<h2 style="color:white;">
+					Here are the predicted genres:
+				</h2>
+				<hr />
+				<div id="genreresponse">
+					<h4 style="color:white">Single Label prediction using Linear SVC</h4>
+					<h3>
+						<div style="color:darkslategray" id="lsvc"></div>
+					</h3>
+					<h4 style="color:white">Single Label prediction using SGD</h4>
+					<h3>
+						<div style="color:darkslategray" id="sgd"></div>
+					</h3>
+					<h4 style="color:white">Multi Label prediction using OneVsRest Classifier and Logistic Regression
+					</h4>
+					<h3>
+						<div style="color:darkslategray" id="onevrest"></div>
+					</h3>
+				</div>
 			</div>
 
 				</div>
@@ -76,6 +97,7 @@
 			<script src="/static/assets/js/skel.min.js"></script>
 			<script src="/static/assets/js/util.js"></script>
             <script src="/static/assets/js/main.js"></script>
-
+            
+            
 	</body>
 </html>
