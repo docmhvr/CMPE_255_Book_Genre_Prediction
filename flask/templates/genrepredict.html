@@ -58,7 +58,7 @@
 						</div>
 					<br>
 						<ul class="actions">
-                            <li><input value="Predict" class="button alt" type="submit" onclick=""></li>
+                            <li><input value="Predict" class="button alt" type="submit" onclick="getResponse()"></li>
 						</ul>
 
 					<div id="result">
@@ -74,11 +74,6 @@
 					<h4 style="color:white">Single Label prediction using SGD</h4>
 					<h3>
 						<div style="color:darkslategray" id="sgd"></div>
-					</h3>
-					<h4 style="color:white">Multi Label prediction using OneVsRest Classifier and Logistic Regression
-					</h4>
-					<h3>
-						<div style="color:darkslategray" id="onevrest"></div>
 					</h3>
 				</div>
 			</div>
@@ -98,6 +93,45 @@
 			<script src="/static/assets/js/util.js"></script>
             <script src="/static/assets/js/main.js"></script>
             
-            
+            <script>
+				var survey = document.getElementById("survey");
+				survey.style.display = "none";
+
+                function submitonenter(evt, thisObj) {
+                    if (evt) { getResponse(); }
+                }
+                function getResponse() {
+                    var respl = document.getElementById('lsvc');
+					var resps=document.getElementById('sgd');
+					var summ=document.getElementById('clientmessage').value;
+					var title = document.getElementById('name').value;
+					var result = document.getElementById("result");
+                    console.log(summ);
+					if(summ.length == 0){
+						respl.innerHTML = "Please enter a summary.";
+						respo.innerHTML = "Please enter a summary.";
+						resps.innerHTML = "Please enter a summary.";
+					}
+					else{
+						var xhr = new XMLHttpRequest();
+						var url = "/predict/?query=" + encodeURIComponent(summ) + "&name=" + encodeURIComponent(title);
+						console.log(url);
+						xhr.open("GET", url, true);
+						xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+						xhr.send();
+						xhr.onreadystatechange = function () {
+							if (xhr.readyState === 4 && xhr.status === 200) {
+								console.log(xhr.responseText);
+								var json = JSON.parse(xhr.responseText);
+								respl.innerHTML = json['linearsvc'];
+								resps.innerHTML=json['sgd'];
+								result.scrollIntoView();
+								survey.style.display = "block";
+							}
+                    	}
+					}
+                }
+			</script>
+
 	</body>
 </html>
